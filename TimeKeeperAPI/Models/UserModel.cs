@@ -7,11 +7,8 @@ namespace TimeKeeperAPI.Models
 {
     public class UserModelBase
     {
-        public Guid ID { get; set; }
-        public String FullName { get; set; }
-        public String Phone { get; set; }
-        public String Email { get; set; }
-        public String Password { get; set; }
+        public string ID { get; set; }
+        public string FullName { get; set; }
     }
     public class UserModel : UserModelBase
     {

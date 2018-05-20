@@ -1,15 +1,26 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using TimeKeeperAPI.Data;
 
 namespace TimeKeeperAPI.Models
 {
-    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
+    // You can add profile data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    public class User : IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
+
+        [StringLength(200)]
+        public string FullName { get; set; }
+        public ICollection<Work> Works { get; set; }
+        public ICollection<Memory> Memories { get; set; }
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
@@ -18,16 +29,30 @@ namespace TimeKeeperAPI.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class TimeKeeperContext : IdentityDbContext<User>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public TimeKeeperContext()
+            : base("name=DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
-        public static ApplicationDbContext Create()
+
+
+        public DbSet<Work> Works { get; set; }
+        public DbSet<Memory> Memories { get; set; }
+        public DbSet<TimeItem> TimeItems { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            return new ApplicationDbContext();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>().ToTable("User");
+        }
+
+        public static TimeKeeperContext Create()
+        {
+            return new TimeKeeperContext();
         }
     }
 }

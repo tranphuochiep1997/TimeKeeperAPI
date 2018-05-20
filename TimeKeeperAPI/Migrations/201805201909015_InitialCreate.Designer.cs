@@ -13,7 +13,7 @@ namespace TimeKeeperAPI.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201805081544204_InitialCreate"; }
+            get { return "201805201909015_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

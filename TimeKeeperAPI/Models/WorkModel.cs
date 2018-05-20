@@ -7,10 +7,10 @@ namespace TimeKeeperAPI.Models
 {
     public class WorkModelBase
     {
-        public Guid ID { get; set; }
-        public String WorkName { get; set; }
-        public String Color { get; set; }
-        public Guid UserID { get; set; }
+        public string ID { get; set; }
+        public string WorkName { get; set; }
+        public string Color { get; set; }
+        public string UserID { get; set; }
     }
     public class WorkModel : WorkModelBase
     {

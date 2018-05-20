@@ -232,15 +232,13 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\Memory.cs" />
     <Compile Include="Data\TimeItem.cs" />
-    <Compile Include="Data\TimeKeeperContext.cs" />
-    <Compile Include="Data\User.cs" />
     <Compile Include="Data\Work.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805081544204_InitialCreate.cs" />
-    <Compile Include="Migrations\201805081544204_InitialCreate.Designer.cs">
-      <DependentUpon>201805081544204_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201805201909015_InitialCreate.cs" />
+    <Compile Include="Migrations\201805201909015_InitialCreate.Designer.cs">
+      <DependentUpon>201805201909015_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -303,6 +301,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
@@ -329,8 +328,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805081544204_InitialCreate.resx">
-      <DependentUpon>201805081544204_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805201909015_InitialCreate.resx">
+      <DependentUpon>201805201909015_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

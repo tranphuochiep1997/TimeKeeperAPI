@@ -7,11 +7,11 @@ namespace TimeKeeperAPI.Models
 {
     public class MemoryModelBase
     {
-        public Guid ID { get; set; }
-        public Guid UserID { get; set; }
-        public String FileName { get; set; }
-        public String Location { get; set; }
-        public DateTimeOffset CreatedAt { get; set; }
+        public string ID { get; set; }
+        public string UserID { get; set; }
+        public string FileName { get; set; }
+        public string Location { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
     public class MemoryModel : MemoryModelBase
     {

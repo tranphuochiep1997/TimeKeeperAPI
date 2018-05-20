@@ -9,16 +9,15 @@ namespace TimeKeeperAPI.Data
 {
     public class TimeItem
     {
-        public Guid ID { get; set; }
+        public string Id { get; set; }
 
         [Required]
-        public DateTimeOffset StartAt { get; set; }
+        public DateTime StartAt { get; set; }
 
         [Required]
-        public DateTimeOffset EndAt { get; set; }
+        public DateTime EndAt { get; set; }
 
-        public String Description { get; set; }
-        public Guid WorkID { get; set; }
+        public string Description { get; set; }
 
         public Work Work { get; set; }
     }

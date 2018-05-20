@@ -7,11 +7,11 @@ namespace TimeKeeperAPI.Models
 {
     public class TimeItemModelBase
     {
-        public Guid ID { get; set; }
-        public DateTimeOffset StartAt { get; set; }
-        public DateTimeOffset EndAt { get; set; }
-        public String Description { get; set; }
-        public Guid WorkID { get; set; }
+        public string ID { get; set; }
+        public DateTime StartAt { get; set; }
+        public DateTime EndAt { get; set; }
+        public string Description { get; set; }
+        public string WorkID { get; set; }
     }
     public class TimeItemModel : TimeItemModelBase
     {
